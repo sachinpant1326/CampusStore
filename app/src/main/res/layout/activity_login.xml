@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    android:padding="40dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="60dp"
+        android:text="Foody"
+        android:textColor="#ffffff"
+        android:textSize="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textColor="#ffffff"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/log_e1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#ffffff"
+        android:padding="5dp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Password"
+        android:textColor="#ffffff"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/log_e2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#ffffff"
+        android:inputType="textPassword"
+        android:padding="5dp"
+        android:textColor="#000000" />
+
+
+    <Button
+        android:id="@+id/log_b1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorPrimary"
+        android:elevation="10dp"
+        android:text="Login"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/log_t1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="Not registered? Sign up here"
+        android:textColor="#ffffff" />
+
+</LinearLayout>
