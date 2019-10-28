@@ -1,7 +1,5 @@
 package com.example.campusstore;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,15 +18,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.zip.DataFormatException;
 
 public class Menu extends Fragment
 {
     GridView gv;
     GridAdapter cg;
-    ArrayList<Data> data;
+    ArrayList<ModelData> data;
     DatabaseReference data_ref;
 
     public Menu()
@@ -55,8 +51,10 @@ public class Menu extends Fragment
 
                 for(DataSnapshot ds: dataSnapshot.getChildren())
                 {
-                    Data d=ds.getValue(Data.class);
-                    data.add(d);
+                    ModelData d=ds.getValue(ModelData.class);
+                    FirebaseAuth fb=FirebaseAuth.getInstance();
+                    if(d.getItem_owner().equals(fb.getUid()))
+                        data.add(d);
                 }
 
                 cg=new GridAdapter(getActivity(),data);

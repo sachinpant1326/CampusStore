@@ -1,7 +1,6 @@
 package com.example.campusstore;
 
 import android.content.Context;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +14,10 @@ import java.util.ArrayList;
 
 public class GridAdapter extends BaseAdapter
 {
-    ArrayList<Data> list_data;
+    ArrayList<ModelData> list_data;
     private Context ct;
 
-    public GridAdapter(Context ct,ArrayList<Data> data)
+    public GridAdapter(Context ct,ArrayList<ModelData> data)
     {
         this.ct=ct;
         this.list_data=data;
@@ -47,7 +46,7 @@ public class GridAdapter extends BaseAdapter
         TextView t2=convertView.findViewById(R.id.grid_t2);
         ImageView i1=convertView.findViewById(R.id.grid_i1);
 
-        Data data=list_data.get(position);
+        ModelData data=list_data.get(position);
         t1.setText(data.getItem_name());
         t2.setText("\u20B9"+" "+data.getItem_price());
 

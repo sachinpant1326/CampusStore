@@ -1,7 +1,6 @@
 package com.example.campusstore;
 
 import android.content.ContentResolver;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,7 +14,6 @@ import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -104,7 +102,7 @@ public class AddItem extends Fragment implements View.OnClickListener
                             String url= task.getResult().toString();
                             String owner=FirebaseAuth.getInstance().getUid();
 
-                            Data data=new Data(name,price,shop,owner,url);
+                            ModelData data=new ModelData(name,price,shop,owner,url);
                             String uploadid=data_ref.push().getKey();
                             data_ref.child(uploadid).setValue(data);
 

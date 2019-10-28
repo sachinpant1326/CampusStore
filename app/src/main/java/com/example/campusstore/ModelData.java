@@ -1,15 +1,19 @@
 package com.example.campusstore;
 
-public class Data
+public class ModelData
 {
-    private String item_name;
-    private String item_price;
-    private String item_shop;
-    private String item_url;
-    private String item_owner;
+    private String item_name, item_price,item_shop,item_url,item_owner;
 
-    public Data()
+    public ModelData()
     {
+    }
+    public ModelData(String name, String price, String shop, String owner , String url)
+    {
+        item_name=name;
+        item_price=price;
+        item_shop=shop;
+        item_url=url;
+        item_owner=owner;
     }
 
     public String getItem_owner() {
@@ -52,12 +56,5 @@ public class Data
         return item_url;
     }
 
-    public Data(String name, String price, String shop, String owner ,String url)
-    {
-        item_name=name;
-        item_price=price;
-        item_shop=shop;
-        item_url=url;
-        item_owner=owner;
-    }
+
 }
