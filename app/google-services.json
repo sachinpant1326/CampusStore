@@ -45,9 +45,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:569208218884:android:f116f1d7371f243f78dc51",
+        "mobilesdk_app_id": "1:569208218884:android:0bae82874b377e4878dc51",
         "android_client_info": {
-          "package_name": "com.example.lovelyguide"
+          "package_name": "com.example.userstore"
         }
       },
       "oauth_client": [

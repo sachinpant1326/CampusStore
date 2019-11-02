@@ -38,7 +38,7 @@ public class Home extends AppCompatActivity
                             fb=new Menu();
                             break;
                         case R.id.nav_add:
-                            fb=new AddItem();
+                            fb=new Profile();
                             break;
                         case R.id.nav_order:
                             fb=new Order();

@@ -36,8 +36,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>
     public void onBindViewHolder(ViewHolder holder, int position)
     {
         ModelOrder data=list_Data.get(position);
-        holder.t1.setText("Item             : "+data.getItem_name()+" ( Qty "+data.getItem_quantity()+" )");
-        holder.t2.setText("Customer Name    : "+data.getUname());
+        holder.t1.setText("Item                          : "+data.getItem_name()+" ( Qty "+data.getItem_quantity()+" )");
+        holder.t2.setText("Customer Name     : "+data.getUname());
         holder.t3.setText("Customer Address : "+data.getUaddress());
 
     }

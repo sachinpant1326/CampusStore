@@ -38,11 +38,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener
         pd=new ProgressDialog(this);
         fbauth=FirebaseAuth.getInstance();
 
+        /*
         if(fbauth.getCurrentUser()!=null){
             finish();
             startActivity(new Intent(getApplicationContext(),Home.class));
         }
-
+        */
     }
 
     public void onClick(View v)

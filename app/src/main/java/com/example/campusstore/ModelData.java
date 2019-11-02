@@ -2,11 +2,12 @@ package com.example.campusstore;
 
 public class ModelData
 {
-    private String item_name, item_price,item_shop,item_url,item_owner;
+    private String item_name, item_price,item_shop,item_url,item_owner,key;
 
     public ModelData()
     {
     }
+
     public ModelData(String name, String price, String shop, String owner , String url)
     {
         item_name=name;
@@ -14,6 +15,14 @@ public class ModelData
         item_shop=shop;
         item_url=url;
         item_owner=owner;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getItem_owner() {

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,9 +14,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 public class Register extends AppCompatActivity implements View.OnClickListener{
 
@@ -65,7 +72,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         {
             pd.setMessage("Registering User ....");
             pd.show();
-
+            final String email1=email;
             fbauth.createUserWithEmailAndPassword(email,pass)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
@@ -77,14 +84,21 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                         finish();
                         Toast.makeText(getApplicationContext(), "Your are registered successfully", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(getApplicationContext(),Login.class));
+                        createUserProfile(email1);
+
                     }
                     else
                         Toast.makeText(getApplicationContext(),"Some error occured",Toast.LENGTH_LONG).show();
                 }
             });
         }
+    }
 
-
-
+    public void createUserProfile(String email)
+    {
+        final DatabaseReference data_ref= FirebaseDatabase.getInstance().getReference("Profiles");
+        String uploadid=FirebaseAuth.getInstance().getUid();
+        ModelProfile data=new ModelProfile(uploadid,"",email,"","","");
+        data_ref.child(uploadid).setValue(data);
     }
 }
