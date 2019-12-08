@@ -44,6 +44,8 @@ public class Menu extends Fragment implements View.OnClickListener
     private static final int PICK_IMAGE=1;
     Uri uri;
 
+    ImageView iv;
+
     public Menu()
     {
     }
@@ -102,21 +104,22 @@ public class Menu extends Fragment implements View.OnClickListener
     {
         AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
         View v=getLayoutInflater().inflate(R.layout.additem,null);
-        alert.setTitle("Add New Item to Menu");
         final EditText name=v.findViewById(R.id.add_e1);
         final EditText price=v.findViewById(R.id.add_e2);
         final EditText shop=v.findViewById(R.id.add_e3);
-        final ImageView iv=v.findViewById(R.id.add_i1);
+        iv=v.findViewById(R.id.add_i1);
 
         final Button b1=v.findViewById(R.id.add_b1);
         final Button b2=v.findViewById(R.id.add_b2);
+
+        alert.setView(v);
+        final AlertDialog ad=alert.show();
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
                 fileChooser();
-                iv.setImageURI(uri);
             }
         });
         b2.setOnClickListener(new View.OnClickListener() {
@@ -126,11 +129,18 @@ public class Menu extends Fragment implements View.OnClickListener
                 String n=name.getText().toString().trim();
                 String p=price.getText().toString().trim();
                 String s=shop.getText().toString().trim();;
-                uploadData(n,p,s);
+                if(n.isEmpty())
+                    name.setError("Not valid");
+                else if(checkNumeric(p)==false)
+                    price.setError("Not valid");
+                else if(s.isEmpty())
+                    shop.setError("Not valid");
+                else {
+                    uploadData(n, p, s);
+                    ad.dismiss();
+                }
             }
         });
-        alert.setView(v);
-        alert.show();
     }
 
 
@@ -146,6 +156,7 @@ public class Menu extends Fragment implements View.OnClickListener
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         uri=data.getData();
+        iv.setImageURI(uri);
     }
 
     public void uploadData(final String name,final String price,final String shop)
@@ -182,5 +193,19 @@ public class Menu extends Fragment implements View.OnClickListener
         ContentResolver cr = getActivity().getContentResolver();
         MimeTypeMap mp=MimeTypeMap.getSingleton();
         return mp.getExtensionFromMimeType(cr.getType(uri));
+    }
+
+    public boolean checkNumeric(String s)
+    {
+        boolean ans=true;
+        try
+        {
+            Integer.parseInt(s);
+        }
+        catch (NumberFormatException e)
+        {
+            ans=false;
+        }
+        return ans;
     }
 }

@@ -32,6 +32,20 @@
             android:layout_below="@+id/order_t2"
             android:textSize="15dp" />
 
+        <TextView
+            android:id="@+id/order_t4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/order_t3"
+            android:textSize="15dp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/order_b1"
+            android:text="Prepared"
+            android:layout_below="@id/order_t4"
+            android:layout_marginLeft="100dp"/>
+
     </RelativeLayout>
 
 

@@ -1,7 +1,9 @@
 package com.example.campusstore;
 
 public class ModelOrder {
-    private String item_name, item_price, item_quantity, item_shop, item_url, item_owner;
+
+
+    private String item_name, item_price, item_quantity, item_shop, item_url, item_owner,key;
     private String uname, uaddress, uphone;
 
     public ModelOrder() {
@@ -17,6 +19,14 @@ public class ModelOrder {
         this.uname = uname;
         this.uaddress = uaddress;
         this.uphone = uphone;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getItem_name() {

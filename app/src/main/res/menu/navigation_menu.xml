@@ -11,7 +11,7 @@
         android:title="Orders"/>
     <item
         android:id="@+id/nav_add"
-        android:icon="@drawable/form"
-        android:title="Add Item"/>
+        android:icon="@drawable/profile"
+        android:title="Profile"/>
 
 </menu>

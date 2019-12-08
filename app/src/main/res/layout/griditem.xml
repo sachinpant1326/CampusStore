@@ -46,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/grid_i2"
-                android:src="@drawable/addtocart"
+                android:src="@drawable/delete"
                 android:layout_marginLeft="20dp"/>
 
         </LinearLayout>

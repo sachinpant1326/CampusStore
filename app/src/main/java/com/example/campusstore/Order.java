@@ -61,12 +61,14 @@ public class Order extends Fragment
         DatabaseReference data_ref= FirebaseDatabase.getInstance().getReference("Orders");
         data_ref.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
+                data=new ArrayList<>();
                 for(DataSnapshot ds: dataSnapshot.getChildren())
                 {
                     ModelOrder d=ds.getValue(ModelOrder.class);
-                    data.add(d);
+                    if(d.getItem_owner().equals(FirebaseAuth.getInstance().getUid()))
+                        data.add(d);
                 }
 
                 rv.setHasFixedSize(true);
